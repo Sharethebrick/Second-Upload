@@ -1,0 +1,144 @@
+/** Brick member popup **/
+.modal-dialog.modal-review button.btn.btn-save-stt:hover{
+	color: #088dd3;
+}
+/** Tabs on brick detail page **/
+#custom-meta-tabs ul li {
+    /*padding: 0*/
+}
+#custom-meta-tabs .nav-tabs .nav-link {
+    border: none;
+    border-bottom: 1px solid transparent;
+    padding: 0;
+    margin-right: 20px;
+    padding-bottom: 10px;
+}
+#custom-meta-tabs .nav-tabs .nav-item.show .nav-link,
+#custom-meta-tabs .nav-tabs .nav-link.active {
+    border-bottom-color: #088dd3;
+    border-bottom-width: 3px;
+}
+#brick-group-tabs-content {
+    padding: 20px 0;
+}
+#brick-group-tabs li a {
+    font-size: 28px;
+    position: relative;
+    padding-bottom: 10px;
+    font-weight: 700;
+    color: #000
+}
+#custom-meta-tabs .file-container i.fa-file {
+    font-size: 80px;
+}
+#custom-meta-tabs .file-container img {
+    height: 80px;
+}
+#custom-meta-tabs .file-container>div {
+    margin: 15px 0;
+}
+#custom-meta-tabs .chats-alls li i.fa {
+    margin: 0 5px;
+}
+#custom-meta-tabs .file-container a:hover {
+    color: #000000
+}
+.listing-details-header .listing-meta ul li a:hover{
+    color: initial;
+}
+.listing-details-header #custom-meta-tabs  .listing-title h2.brs-tra:after{
+    height: 1px;
+}
+.listing-details-header #custom-meta-tabs .listing-title h2.brs-tra{
+    font-size: 22px;
+}
+#custom-meta-tabs #chat .msg-ic a:hover{
+    color: #000;
+}
+ul.brickDetailPageTabListUL a{
+    font-size:19px !important;
+    padding-right: 20px !important;
+}
+.single_listing_item-table td button {
+    padding: 4px 9px;
+}
+
+#exampleModalLong .displayNote {
+    white-space: break-spaces;
+}
+#group-files a.text-center {
+    word-break: break-all;
+    font-size: 12px;
+    border: 1px solid #eeeeee;
+    padding: 5px;
+}
+#group-files a.text-center img {
+    display: block;
+    text-align: center;
+    margin: 0 auto 6px;
+}
+#files a.upgrd.uprde  i {
+    top: 5px;
+    left: 5px;
+}
+.listing-details-header .listing-meta ul li a {
+    font-size: 14px;
+}
+.listing-details-header .listing-meta ul li {
+    float: left;
+    width: 100%;
+    margin: 0 0 10px;
+    border:0;
+}
+.listing-details-header .listing-meta {
+    margin-top: 15px;
+}
+.listing-title p {
+    color: #000000;
+    font-size: 16px;
+}
+.listing-box-footer .btn.btn-warning.btn-m {
+    font-size: 12px;
+    border: 1px solid #000;
+    font-weight: bold;
+    border-radius: 26px;
+    border-color: #000;
+}
+.listing-box-footer .btn.btn-warning.btn-m:focus {
+    outline: none;
+    box-shadow: none;
+}
+.listing-box-footer .btn-warning:hover {
+    color: #000;
+    background-color: #ffc107;
+    border-color: #000;
+}
+
+a.msg-ayr {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background: #3f9423;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    font-size: 14px;
+    margin-right: 5px;
+}
+.listing-content{
+    display: flex;
+}
+.left-content {
+    width: 100%;
+}
+.right-content {
+    width:100%;
+    text-align: end;
+}
+.right-content span {
+    display:block;
+    font-weight: bold;
+    font-size: 12px;
+
+}

@@ -1,0 +1,117 @@
+@extends('admin.layouts.app')
+@section('content')
+<div class="dashboard-ecommerce">
+    <div class="container-fluid dashboard-content">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="page-header">
+                    <h2 class="pageheader-title">Resource Comments</h2>
+                    <div class="page-breadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{url('/')}}/admin/dashboard" class="breadcrumb-link">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Resource Comments</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+        <!-- ============================================================== -->
+        <!-- basic table  -->
+        <!-- ============================================================== -->
+        @if (Session::has('message'))
+           <div class="col-lg-12">
+            <div class="alert alert-success">
+                {{ Session::get('message') }}
+            </div>
+           </div>
+        @endif
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">{{$resource->title}} Comments
+                   <!--  <a style="float: right;" href="{{url('/')}}/admin/add-resource"><button type="button" class="btn btn-dark">Add New</button></a> -->
+                </h5>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered users_tbl">
+                            <thead>
+                                <tr>
+                                    <th>Comment ID</th>
+                                    <th>User ID</th>
+                                    <th>Comment</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Website</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if(count($comments) > 0)
+                                @foreach($comments as $cat)
+                                <tr>
+                                    <td>#{{$cat->id}}</td>
+                                    <td>#{{$cat->user_id}}</td>
+                                    <td>{{$cat->comment}}</td>    
+                                    <td>{{$cat->name}}</td> 
+                                    <td>{{$cat->email}}</td> 
+                                    <td>{{$cat->website}}</td>                                    
+                                    <td><span class="badge badge-{{$cat->status == 1 ? 'success' : ($cat->status == 0 ? 'info' : 'danger')}}">{{$cat->status == 1 ? 'Active' : ($cat->status == 0 ? 'Inactive' :  'Deleted')}}</span></td>
+                                    <td>
+                                        @if($cat->status != 2)
+                                            @if($cat->status == 1)
+                                            <button title="Inactive Comment" type="button" class="ad_act_users" data-id="{{$cat->id}}" data-value="0" data-toggle="modal" data-target="#act_deact_resource_comment_modal"><i class="fas fa-lock"></i></button>
+                                            @else
+                                            <button title="Activate Comment" type="button" class="ad_deact_users" data-id="{{$cat->id}}" data-value="1" data-toggle="modal" data-target="#act_deact_resource_comment_modal"><i class="fas fa-check"></i></button>
+                                            @endif
+                                            <button title="Delete Comment" type="button" class="ad_del_users" data-id="{{$cat->id}}" data-toggle="modal" data-value="2" data-target="#act_deact_resource_comment_modal"><i class="fas fa-trash"></i></button>
+                                        @endif
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @else
+                                <tr>
+                                    <td colspan="13">No Comments found.</td>
+                                </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end basic table  -->
+        <!-- ============================================================== -->
+    </div>
+    </div>
+</div>
+
+<!-- activate deactivate user modal -->
+<div class="modal fade" id="act_deact_resource_comment_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title act_modal_title" id="exampleModalLabel">User Activation</h5>
+                <a href="javascript:void(0)" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                <p class="act_modal_body">Do you want to activate this user?</p>
+                <input type="hidden" id="a_user_id">
+                <input type="hidden" id="a_user_status">
+                <input type="hidden" id="token" value="{{ csrf_token() }}">
+            </div>
+            <div class="modal-footer">        
+                <button type="button" class="btn btn-primary" id="confirm_user_resource_comment_deact">Yes</button>
+                <a href="javascript:void(0)" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
